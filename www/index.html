@@ -49,15 +49,16 @@
 
             TestClass.fetchAll()
             .then(function(results) {
-                let msg = "";
+                let msg = "<table><tr><th>message</th><th>Update Date</th></tr>";
                 
                 for (let i=0; i<results.length; i++) {
                     let data = results[i].get("text");
                     let update = results[i].get("updateDate");
 
-                    msg += data + ":" + update + "<br>";
+                    msg += "<tr><td>"+data+"</td><td>"+update+"</td></tr>";
                 }
 
+                msg += "</table>"
                 $("#message").html(msg);
             })
         }
